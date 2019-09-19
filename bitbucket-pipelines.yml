@@ -8,11 +8,17 @@ image: php:7.1.29
 pipelines:
   default:
     - step:
+          name: Create artifact
+          script:
+            - tar czfv ccboxing.tgz
+          artifacts:
+            - ccboxing.tgz
+    - step:
         script:
           - pipe: atlassian/heroku-deploy:1.0.1
             variables:
               HEROKU_API_KEY: 'd9127da3-5717-4c8a-adec-2220f2e8dddf'
               HEROKU_APP_NAME: 'ccboxing'
-              ZIP_FILE: 'ccboxing-sources.tar.gz'
+              ZIP_FILE: 'ccboxing.tgz'
 
          
