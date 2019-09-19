@@ -10,7 +10,7 @@ pipelines:
     - step:
           name: Create artifact
           script:
-            - tar czfv ccboxing.tgz
+            - tar czfv ccboxing.tgz /
           artifacts:
             - ccboxing.tgz
     - step:
