@@ -6,19 +6,13 @@
 image: php:7.1.29
 
 pipelines:
-  default:
-    - step:
-          name: Create artifact
+  branches:
+    master:
+      - step:
+          caches:
+            - composer
           script:
-            - tar czfv ccboxing.tgz /
-          artifacts:
-            - ccboxing.tgz
-    - step:
-        script:
-          - pipe: atlassian/heroku-deploy:1.0.1
-            variables:
-              HEROKU_API_KEY: 'd9127da3-5717-4c8a-adec-2220f2e8dddf'
-              HEROKU_APP_NAME: 'ccboxing'
-              ZIP_FILE: 'ccboxing.tgz'
-
+            - composer install --no-interaction --no-progress --prefe-dist
+            - composer test
+            - git push https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git HEAD
          
