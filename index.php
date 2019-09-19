@@ -1,10 +1,13 @@
-<html>
-    <head>
-        <title>
-            ccboxing
-        </title>
-    </head>
-    <body>
-        <h1>C C Boxing</h1>
-    </body>
-</html>
+<?php 
+    $request_uri = explode('?', substr($_SERVER['REQUEST_URI'], strlen('/')), 2);
+
+    switch($request_uri){
+        case "app":
+            require_once __DIR__."/app/index.php";
+        break;
+        case "":
+        default:
+            include('indexhtml.php');
+        break;
+    }  
+?>

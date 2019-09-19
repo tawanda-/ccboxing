@@ -1,0 +1,5 @@
+[19-Sep-2019 12:28:11 UTC] PHP Notice:  Array to string conversion in /home/esikogxy/ccboxing/app/index.php on line 28
+[19-Sep-2019 12:29:22 UTC] PHP Notice:  Array to string conversion in /home/esikogxy/ccboxing/app/index.php on line 28
+[19-Sep-2019 17:25:47 UTC] PHP Parse error:  syntax error, unexpected 'Clay' (T_STRING) in /home/esikogxy/ccboxing/app/views/home.php on line 16
+[19-Sep-2019 17:28:30 UTC] PHP Warning:  require_once(/home/esikogxy/ccboxing/app/views/app/config/settings.php): failed to open stream: No such file or directory in /home/esikogxy/ccboxing/app/views/home.php on line 1
+[19-Sep-2019 17:28:30 UTC] PHP Fatal error:  require_once(): Failed opening required '/home/esikogxy/ccboxing/app/views/app/config/settings.php' (include_path='.:/opt/cpanel/ea-php56/root/usr/share/pear') in /home/esikogxy/ccboxing/app/views/home.php on line 1
