@@ -8,13 +8,10 @@ image: php:7.1.29
 pipelines:
   default:
     - step:
-        caches:
-          - composer
         script:
           - pipe: atlassian/heroku-deploy:1.0.1
             variables:
               HEROKU_API_KEY: $HEROKU_API_KEY
               HEROKU_APP_NAME: 'ccboxing'
-              ZIP_FILE: 'your-app-sources.tar.gz'
 
          
