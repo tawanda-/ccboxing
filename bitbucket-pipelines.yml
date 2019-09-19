@@ -1,0 +1,15 @@
+# This is a sample build configuration for PHP.
+# Check our guides at https://confluence.atlassian.com/x/e8YWN for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+image: php:7.1.29
+
+pipelines:
+  branches:
+    master:
+      - step:
+          script:
+            - apt-get update && apt-get install -y unzip git git-core libc-client-dev libkrb5-dev && rm -r /var/lib/apt/lists/*
+            - git push https://heroku:d9127da3-5717-4c8a-adec-2220f2e8dddf@git.heroku.com/ccboxing.git HEAD
+         
