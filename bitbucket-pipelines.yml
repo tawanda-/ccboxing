@@ -11,7 +11,8 @@ pipelines:
         script:
           - pipe: atlassian/heroku-deploy:1.0.1
             variables:
-              HEROKU_API_KEY: $HEROKU_API_KEY
+              HEROKU_API_KEY: 'd9127da3-5717-4c8a-adec-2220f2e8dddf'
               HEROKU_APP_NAME: 'ccboxing'
+              ZIP_FILE: 'ccboxing.tar.gz'
 
          
