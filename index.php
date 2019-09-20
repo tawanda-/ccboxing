@@ -3,7 +3,7 @@
 
     //var_dump($request_uri);
     //background: #000;
-    //index
+    //index hello
 
     switch($request_uri){
         case "app":
