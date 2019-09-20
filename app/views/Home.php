@@ -8,9 +8,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link type="text/css"  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" type="text/css" href="">
-        <script src=""></script>
-        <script src=""></script>
+        <link rel="stylesheet" type="text/css" href="ccboxing.esikolweni.co.za/resources/css/ccboxing.css" >
+        <script src="../resources/js/jquery-3.2.1.min.js"></script>
+        <script src="../resources/js/ccboxing.js"></script>
     </head>
     <body>
         <div class="header">
