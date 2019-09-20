@@ -9,7 +9,8 @@
 
     $request_uri = explode('?', substr($_SERVER['REQUEST_URI'], strlen('/app')), 2);
 
-    //var_dump($request_uri);
+    var_dump($_SERVER['REQUEST_URI']);
+    echo "app";
 
     switch($_SERVER['REQUEST_METHOD']){
 

@@ -5,6 +5,9 @@
     //background: #000;
     //index hello
 
+    var_dump($request_uri);
+    echo "home";
+
     switch($request_uri){
         case "app":
             require_once __DIR__."/app/index.php";
