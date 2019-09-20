@@ -7,6 +7,8 @@
     require_once('config/settings.php');
     require_once('config/db.php');
 
+    var_dump('../');
+
     $request_uri = explode('?', substr($_SERVER['REQUEST_URI'], strlen('/app')), 2);
 
     switch($_SERVER['REQUEST_METHOD']){
@@ -28,18 +30,21 @@
         switch($request){
             case "shop":
                 include(ROOT_DIR."/views/shop.php");
-            break;
+                break;
             case "about":
                 include(ROOT_DIR."/views/about.php");
-            break;
+                break;
             case "contact":
                 include(ROOT_DIR."/views/about.php");
-            break;
+                break;
             case "":
+                include('indexhtml.php');
+                break;
             case "home":
-            default:
                 include(ROOT_DIR."/views/home.php");
-            break;
+                break;
+            default:
+                break;
         }
     }
 

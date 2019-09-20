@@ -1,13 +1,4 @@
 <?php 
-    $request_uri = explode('?', substr($_SERVER['REQUEST_URI'], strlen('/')), 2);
-
-    switch($request_uri){
-        case "app":
-            require_once __DIR__."/app/index.php";
-        break;
-        case "":
-        default:
-            include('indexhtml.php');
-        break;
-    }  
+    //require_once __DIR__."/app/index.php";
+    include('indexhtml.php');
 ?>
