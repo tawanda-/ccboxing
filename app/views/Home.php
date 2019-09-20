@@ -1,4 +1,6 @@
-<?php require_once("../app/config/settings.php");  ?>
+<?php
+    require_once(realpath(__DIR__ . '/..')."/config/settings.php");
+?>
 <html>
     <head>
         <title>
@@ -16,7 +18,7 @@
         <div class="header">
             <div class="page_center">
                 <div class="left">
-                    <?php website_name; ?>
+                    <?php echo website_name; ?>
                 </div>
                 <div class="middle">
                     <ul class="header_nav">

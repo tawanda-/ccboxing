@@ -2,7 +2,7 @@
     <head>
         <title>Cassius Clay Boxing</title>
     </head>
-    <body style="">
+    <body style="background: #fff;">
         <div style="text-align: center;display: block;height:100%;width:100%">
             <div style="width:100%">
                 <img src="resources/media/images/ccboxing.gif">
