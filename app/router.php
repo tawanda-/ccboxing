@@ -3,14 +3,18 @@
     ini_set('display_errors', 1);
     error_reporting(-1);
 
-    $request_uri = explode('/', trim($_SERVER['REQUEST_URI'], '/app'));
+    $request_uri = explode('/', trim($_SERVER['REQUEST_URI'], '/'));
 
     switch($_SERVER['REQUEST_METHOD']){
-
+        
         case "GET":
-            process_get_request($request_uri[0]);
+            if( count($request_uri) > 1 ) {
+                process_get_request($request_uri[1]);
+            }else{
+                process_get_request($request_uri[0]);
+            }
         break;
-
+        
         case "POST":
             process_post_request($request_uri[0]);
         break;
@@ -20,18 +24,19 @@
     }
 
     function process_get_request($uri){
-
+        
         switch($uri){
             case "shop":
-                require __DIR__."/views/shop.php";
+                require(__DIR__."/views/shop.php");
                 break;
             case "about":
-                require __DIR__."/views/about.php";
+                require(__DIR__."/views/about.php");
                 break;
             case "contact":
-                require __DIR__."/views/about.php";
+                require(__DIR__."/views/about.php");
                 break;
             case "":
+            case "app":
             case "home":
                 require(__DIR__."/views/home.php");
                 break;
