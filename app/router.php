@@ -33,7 +33,10 @@
                 require(__DIR__."/views/about.php");
                 break;
             case "contact":
-                require(__DIR__."/views/about.php");
+                require(__DIR__."/views/contact.php");
+                break;
+            case "login":
+                require(__DIR__."/views/login.php");
                 break;
             case "":
             case "app":

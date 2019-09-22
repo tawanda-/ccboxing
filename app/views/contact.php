@@ -5,4 +5,4 @@
 ?>
 
 
-<? include(__DIR__.'/templates/footer.php'); ?>
+<? include(__DIR__.'/templates/footer2.php'); ?>
