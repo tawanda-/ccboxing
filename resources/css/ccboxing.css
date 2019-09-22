@@ -39,6 +39,11 @@ body {
 :root {
     --input-padding-x: 1.5rem;
     --input-padding-y: .75rem;
+    --black-colour: #17252A;
+    --colour-shade-1: #2B7A78;
+    --colour-shade-2: #3AAFA9;
+    --colour-shade-3: #DEF2F1;
+    --white-colour: #FEFFFF;
   }
   
   .card-signin {
