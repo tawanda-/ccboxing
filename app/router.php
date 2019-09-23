@@ -38,6 +38,9 @@
             case "login":
                 require(__DIR__."/views/login.php");
                 break;
+            case "register":
+                require(__DIR__."/views/signup.php");
+                break;
             case "":
             case "app":
             case "home":

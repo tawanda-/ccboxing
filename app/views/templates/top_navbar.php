@@ -8,21 +8,21 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/app/home">Home
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/home">Home
                 <span class="sr-only">(current)</span>
               </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/app/about">About</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/app/shop">Store</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/shop">Store</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/app/contact">Contact</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/contact">Contact</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/app/login">Login</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/login">Login</a>
         </li>
       </ul>
     </div>

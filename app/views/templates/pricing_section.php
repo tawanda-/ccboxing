@@ -15,7 +15,7 @@
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Ages 12+</li>
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Bag work</li>
             </ul>
-            <a href="#" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
+            <a href="https://ccboxing.esikolweni.co.za/register" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Customised training</li>
               <li class="text-muted"><span class="fa-li"><i class="fas fa-times"></i></span>Online fitness program</li>
             </ul>
-            <a href="#" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
+            <a href="https://ccboxing.esikolweni.co.za/register" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
           </div>
         </div>
       </div>
@@ -51,7 +51,7 @@
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Free protective equipement</li>
               <li><span class="fa-li"><i class="fas fa-check"></i></span>Access to online fitness program</li>
             </ul>
-            <a href="#" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
+            <a href="https://ccboxing.esikolweni.co.za/register" class="btn btn-block btn-primary text-uppercase">Sign Up</a>
           </div>
         </div>
       </div>

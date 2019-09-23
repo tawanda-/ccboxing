@@ -16,6 +16,9 @@
               </div>
               <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
             </form>
+            <a href="https://ccboxing.esikolweni.co.za/register">
+              <button class="btn btn-lg btn-info btn-block text-uppercase">Sign up</button>
+            </a>
           </div>
         </div>
       </div>
