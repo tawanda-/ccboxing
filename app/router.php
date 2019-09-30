@@ -27,6 +27,11 @@
         
         switch($uri){
             case "shop":
+                include(__DIR__)."/models/ProductDao.php";
+                $productdao = new ProductDAO();
+                $productdao->get_all_products();
+                $products = $productdao->result;
+                //var_dump($products);
                 require(__DIR__."/views/shop.php");
                 break;
             case "about":
