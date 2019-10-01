@@ -5,13 +5,7 @@
 
   <div class="col-lg-3">
 
-    <h1 class="my-4"><?php website_name; ?></h1>
-    <div class="list-group">
-      <a href="https://ccboxing.esikolweni.co.za/category?categoryid=11" class="list-group-item">Gloves</a>
-      <a href="https://ccboxing.esikolweni.co.za/category?categoryid=12" class="list-group-item">Gum Guards</a>
-      <a href="https://ccboxing.esikolweni.co.za/category?categoryid=13" class="list-group-item">Head Gear</a>
-      <a href="https://ccboxing.esikolweni.co.za/category?categoryid=14" class="list-group-item">Shoes</a>
-    </div>
+      <?php include("category.php"); ?>
 
   </div>
   <!-- /.col-lg-3 -->
@@ -51,13 +45,13 @@
 
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="card h-100">
-          <a href="https://ccboxing.esikolweni.co.za/product?productid=<?php echo $value['product_id']; ?>">
+          <a href="https://ccboxing.esikolweni.co.za/shop?productid=<?php echo $value['product_id']; ?>">
             <img class="card-img-top" 
               src="<?php echo $value['product_image']; ?>" alt="">
           </a>
           <div class="card-body">
             <h4 class="card-title">
-              <a href="https://ccboxing.esikolweni.co.za/product?productid=<?php echo $value['product_id']; ?>">
+              <a href="https://ccboxing.esikolweni.co.za/shop?productid=<?php echo $value['product_id']; ?>">
                 <?php echo $value['product_name']; ?>
               </a>
             </h4>

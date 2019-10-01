@@ -20,21 +20,22 @@
             $this->product_db_query();
         }
 
+        public function get_product_by_category($category_id){
+            $this->get_product_by_category_from_db($category_id);
+        }
+
         private function product_db_query($product_id=null){
 
             $db_conn = get_db_connection();
 
             if(is_null($product_id)){
 
-                
                 $stmt = $db_conn->prepare("
-                SELECT * FROM product
-                INNER JOIN category on product.category_id = category.category_id
+                    SELECT * FROM product
+                    INNER JOIN category on product.category_id = category.category_id
                 ");
                 
-            
                 if ($stmt->execute()) {
-
                     $this->result = $stmt->fetchAll();
                 }
             }else{
@@ -49,6 +50,24 @@
                     $this->result = $stmt->fetch();
                 }
             }
+        }
+
+        private function get_product_by_category_from_db($category_id){
+            
+            $db_conn = get_db_connection();
+
+            if(is_null($category_id)){
+                $this->result = [];
+            }else{
+
+                $stmt = $db_conn->prepare(" SELECT * FROM `product` WHERE `category_id` =? ");
+                
+                if ($stmt->execute( array($category_id) )) {
+                    $this->result = $stmt->fetchAll();
+                }
+
+            }
+
         }
     }
 ?>
