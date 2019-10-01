@@ -1,4 +1,3 @@
-<!-- Page Content -->
 <div class="container">
 
 <div class="row">
@@ -8,7 +7,6 @@
       <?php include("category.php"); ?>
 
   </div>
-  <!-- /.col-lg-3 -->
 
   <div class="col-lg-9">
 
@@ -67,13 +65,6 @@
       <?php endforeach; ?>
 
     </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.col-lg-9 -->
-
 </div>
-<!-- /.row -->
-
 </div>
-<!-- /.container -->

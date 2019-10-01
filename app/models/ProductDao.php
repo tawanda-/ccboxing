@@ -2,8 +2,6 @@
 
     require_once(dirname(__DIR__)."/config/db.php");
 
-    class Product {}
-
     class ProductDAO{
 
         public $result;
@@ -65,9 +63,7 @@
                 if ($stmt->execute( array($category_id) )) {
                     $this->result = $stmt->fetchAll();
                 }
-
             }
-
         }
     }
 ?>
