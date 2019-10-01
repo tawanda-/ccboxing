@@ -68,6 +68,10 @@
                 }
                 break;
             case "about":
+                include(__DIR__)."/models/StaffDao.php";
+                $staffdao = new StaffDao();
+                $staffdao->get_all_staff();
+                $staff = $staffdao->result;
                 require(__DIR__."/views/about.php");
                 break;
             case "contact":
