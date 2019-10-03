@@ -1,5 +1,5 @@
-<header>
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner" role="listbox">
       <!-- Slide One - Set the background image for this slide in the line below -->
       <div class="carousel-item active" style="background-image: url('https://ccboxing.esikolweni.co.za/resources/media/images/carousel_1.jpg')">
@@ -12,4 +12,4 @@
       </div>
     </div>
   </div>
-</header>
+

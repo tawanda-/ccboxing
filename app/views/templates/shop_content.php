@@ -12,15 +12,15 @@
   <div class="col-lg-9">
 
     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-      <div class="carousel-inner" role="listbox">
+      <div class="carousel-inner" style="width:100%;max-height:400px !important;" role="listbox">
         <div class="carousel-item active">
-          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_1.jpg" alt="First slide">
+          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_1.jpg" style="width: 100%;" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_2.jpg" alt="Second slide">
+          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_2.jpg" style="width: 100%;" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_3.jpg" alt="Third slide">
+          <img class="d-block img-fluid" src="https://ccboxing.esikolweni.co.za/resources/media/images/shop_carousel_4.jpg" style="width: 100%;" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
