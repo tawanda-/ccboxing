@@ -13,10 +13,10 @@
               </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/about">About</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/shop">Store</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/shop">Store</a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/about">About</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://ccboxing.esikolweni.co.za/contact">Contact</a>

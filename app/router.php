@@ -80,6 +80,8 @@
             case "login":
                 require(__DIR__."/views/login.php");
                 break;
+            case "logout":
+                require(__DIR__."/views/login.php");
             case "register":
                 require(__DIR__."/views/signup.php");
                 break;
@@ -96,14 +98,23 @@
     function process_post_request($uri){
 
         switch($uri){
-            case "subscribe":
-                include("/views/shop.php");
+            case "login":
+
             break;
-            case "about":
-                include("/views/about.php");
+            case "register":
+                include(__DIR__)."/models/CustomerDao.php";
+                $customerdao = new CustomerDao();
+                $customerdao->create_customer($_POST);
+                $customer = $customerdao->result;
+                $error_message = $customerdao->error_message;
+                if(isset($error_message)){
+                    require(__DIR__."/views/signup.php");
+                }else{
+                    header("Location: https://ccboxing.esikolweni.co.za/login");
+                }
             break;
             case "contact":
-                include("/views/about.php");
+                echo "contact";
             break;
             case "":
             case "home":
