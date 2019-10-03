@@ -21,13 +21,14 @@
         </li>
         <?php if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true ): ?>
           <li class="nav-item">
-            <a class="nav-link" href="https://ccboxing.esikolweni.co.za/login">Cart</a>
+            <a class="nav-link" href="https://ccboxing.esikolweni.co.za/cart">Cart</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="material-icons">account_box</i>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <h6 class="dropdown-header"><?php echo $_SESSION["name"]; ?></h6>
               <a class="dropdown-item" href="#">Profile</a>
               <a class="dropdown-item" href="#">Shopping history</a>
               <a class="dropdown-item" href="https://ccboxing.esikolweni.co.za/logout">logout</a>

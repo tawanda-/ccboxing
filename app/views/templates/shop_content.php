@@ -54,11 +54,34 @@
                 <?php echo $value['product_name']; ?>
               </a>
             </h4>
-            <h5><?php echo $value['product_price']; ?></h5>
+            <h5>Price: R<?php echo $value['product_price']; ?></h5>
+            <h6>In Stock: <?php echo $value['stock_available']; ?></h6>
             <p class="card-text"><?php echo $value['product_description']; ?></p>
           </div>
           <div class="card-footer">
-            <button>Add to cart</button>
+            <?php if( $value['stock_available'] > 0): ?>
+              <form method="post" action="https://ccboxing.esikolweni.co.za/cart">
+                <input type="hidden" name="productid" value=<?php echo $value['product_id']; ?> >
+                <input type="hidden" name="action" value="add">
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <input class="form-control" type="number" name="quantity" 
+                          min="1" max="<?php echo $value['stock_available'];?>">
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" name="" class="btn btn-warning">
+                      <i class="material-icons" style="vertical-align:middle;">add_shopping_cart</i>   Add to cart
+                  </button>
+                </div>
+                </div>
+              </form>
+            <?php else:?>
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <button type="button" class="btn btn-info" disabled>Out of Stock</button>
+                </div>
+              </div>
+            <?php endif; ?>
           </div>
         </div>
       </div>
