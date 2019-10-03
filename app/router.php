@@ -27,6 +27,8 @@
     }
 
     function process_get_request($uri){
+
+        session_start();
         
         switch($uri){
             case "shop":
@@ -81,8 +83,6 @@
                 require(__DIR__."/views/login.php");
                 break;
             case "logout":
-                // Initialize the session
-                session_start();
                 
                 // Unset all of the session variables
                 $_SESSION = array();
@@ -128,7 +128,9 @@
                     $_SESSION["loggedin"] = true;
                     $_SESSION["id"] = $customer["customer_id"];
                     $_SESSION["username"] = $customer["customer_username"];
-                    $_SESSION["name"] = $customer["customer_name"]+$customer["customer_surname"];                 
+                    $_SESSION["name"] = $customer["customer_name"]+$customer["customer_surname"];   
+                    
+                    //var_dump($GLOBALS);
                     
                     // Redirect user to welcome page
                     header("Location: https://ccboxing.esikolweni.co.za/shop");
