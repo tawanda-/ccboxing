@@ -81,7 +81,18 @@
                 require(__DIR__."/views/login.php");
                 break;
             case "logout":
-                require(__DIR__."/views/login.php");
+                // Initialize the session
+                session_start();
+                
+                // Unset all of the session variables
+                $_SESSION = array();
+                
+                // Destroy the session.
+                session_destroy();
+                
+                // Redirect to login page
+                header("Location: https://ccboxing.esikolweni.co.za/login");
+                break;
             case "register":
                 require(__DIR__."/views/signup.php");
                 break;
@@ -93,13 +104,35 @@
             default:
                 break;
         }
+
+        exit;
     }
 
     function process_post_request($uri){
 
         switch($uri){
             case "login":
-
+                include(__DIR__)."/models/CustomerDao.php";
+                $customerdao = new CustomerDao();
+                $customerdao->customer_login($_POST);
+                $customer = $customerdao->result;
+                $error_message = $customerdao->error_message;
+                if(isset($error_message)){
+                    require(__DIR__."/views/login.php");
+                }else{
+                    //start session
+                    // Password is correct, so start a new session
+                    session_start();
+                            
+                    // Store data in session variables
+                    $_SESSION["loggedin"] = true;
+                    $_SESSION["id"] = $customer["customer_id"];
+                    $_SESSION["username"] = $customer["customer_username"];
+                    $_SESSION["name"] = $customer["customer_name"]+$customer["customer_surname"];                 
+                    
+                    // Redirect user to welcome page
+                    header("Location: https://ccboxing.esikolweni.co.za/shop");
+                }
             break;
             case "register":
                 include(__DIR__)."/models/CustomerDao.php";

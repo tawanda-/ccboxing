@@ -10,15 +10,15 @@
         public function __constructor(){}
 
         public function get_customer($customer_id, $password=null){
-            if(is_null()){
-                $this->query_db_customer($customer_id);
+            if(is_null($password)){
+                $this->result = $this->query_db_customer($customer_id);
             }else{
-                $this->query_db_customer($customer_id, $password);
+                $this->result = $this->query_db_customer($customer_id, $password);
             }        
         }
 
         public function get_all_customers(){
-            $this->query_db_customer();
+            $this->result = $this->query_db_customer();
         }
 
         public function create_customer( $customer ){
@@ -73,6 +73,39 @@
             }
         }
 
+        public function customer_login($customer){
+
+            $email;
+            $password;
+            $db_conn = get_db_connection();
+
+            if(empty(trim($customer["email"]))){
+                $this->error_message = "Please enter email.";
+            } else{
+                $email = trim($customer["email"]);
+            }
+            
+            if(empty(trim($customer["password"]))){
+                $this->error_message = "Please enter your password.";
+            } else{
+                $password = trim($customer["password"]);
+            }
+
+            if(!isset($this->error_message) && empty($this->error_message)){
+
+                $sql = $db_conn->prepare("SELECT * FROM `customer` WHERE `customer_email` = ?");
+
+                if ($sql->execute(array($email))) {
+                    $res = $sql->fetch();
+                    if(password_verify($password, $res["password"])){
+                        $this->result = $res;
+                    }else{
+                        $this->error_message = "Incorrect email or password please try again.";
+                    }
+                }
+            }
+        }
+
         private function query_db_customer( $customer_id = null, $password = null ) {
 
             $db_conn = get_db_connection();
@@ -82,7 +115,7 @@
                 $stmt = $db_conn->prepare("SELECT * FROM `customer`");
                 
                 if ($stmt->execute()) {
-                    $this->result = $stmt->fetchAll();
+                    return $stmt->fetchAll();
                 }
 
             }else{
@@ -90,7 +123,7 @@
                 $sql = $db_conn->prepare("SELECT * FROM `customer` WHERE `customer_id` = ?");
 
                 if ($stmt->execute(array($customer_id))) {
-                    $this->result = $stmt->fetch();
+                    return $stmt->fetch();
                 }
             }
         }

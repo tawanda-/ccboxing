@@ -8,9 +8,7 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/home">Home
-                <span class="sr-only">(current)</span>
-              </a>
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/home">Home</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="https://ccboxing.esikolweni.co.za/shop">Store</a>
