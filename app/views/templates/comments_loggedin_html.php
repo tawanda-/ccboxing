@@ -34,7 +34,19 @@
                     <?php echo $_SESSION['username'].', '; ?>
                     please leave a comment
                 </div>
-            </div>
+			</div>
+			<div class="form-group">
+                <div class="col-sm-10">
+					<select class="custom-select mr-sm-2" id="rating" name="rating">
+						<option selected>Product star Rating</option>
+						<option value="1">One</option>
+						<option value="2">Two</option>
+						<option value="3">Three</option>
+						<option value="4">Four</option>
+						<option value="5">Five</option>
+					</select>
+				</div>
+			</div>
             <div class="form-group">
                 <div class="col-sm-10">
                     <textarea class="form-control" name="commenttxt" id="commenttxt" rows="5"></textarea>
@@ -42,7 +54,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">                    
-                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment" name=""><span class="glyphicon glyphicon-send"></span> Submit comment</button>
+                    <button class="btn btn-success btn-circle text-uppercase" type="submit" id="submitComment" name=""><span class="glyphicon glyphicon-send"></span> Submit</button>
                 </div>
             </div>            
         </form>

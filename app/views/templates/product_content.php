@@ -27,7 +27,29 @@
           }
         ?>
       </p>
-      <button style="margin-bottom: 16px;">Add to cart</button>
+      <?php if( $product['stock_available'] > 0): ?>
+              <form method="post" action="https://ccboxing.esikolweni.co.za/cart">
+                <input type="hidden" name="productid" value=<?php echo $product['product_id']; ?> >
+                <input type="hidden" name="action" value="add">
+                <div class="form-row align-items-center">
+                  <div class="col-auto">
+                    <input class="form-control" type="number" name="quantity" value="1"
+                          min="1" max="<?php echo $product['stock_available'];?>">
+                  </div>
+                  <div class="col-auto">
+                    <button type="submit" name="" class="btn btn-warning">
+                      <i class="material-icons" style="vertical-align:middle;">add_shopping_cart</i>   Add to cart
+                  </button>
+                </div>
+                </div>
+              </form>
+            <?php else:?>
+              <div class="form-row align-items-center">
+                <div class="col-auto">
+                  <button type="button" class="btn btn-info" disabled>Out of Stock</button>
+                </div>
+              </div>
+            <?php endif; ?>
       <?php if(isset($_SESSION["loggedin"])):?>
         <p>
           <b>Comments:</b><br/>

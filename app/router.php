@@ -106,6 +106,12 @@
             case "terms":
                 require(__DIR__."/views/terms.php");
                 break;
+            case "checkout":
+                require(__DIR__."/views/checkout.php");
+                break;
+            case "success":
+                require(__DIR__."/views/success.php");
+                break;
             case "":
             case "app":
             case "home":
@@ -167,72 +173,84 @@
                 switch($_POST["action"]){
 
                     case "add":
-                        include(__DIR__)."/models/ProductDao.php";
-                        $productdao = new ProductDAO();
-                        $productdao->get_product($_POST['productid']);
-                        $product_r = $productdao->result;
-                        $item_total_price;
-                        if(isset($product_r) === true){
-                            if(0 < $_POST['quantity'] && $_POST['quantity'] < $product_r["stock_available"]){
-                                $product = array("product_id" => $product_r["product_id"], 
-                                                    "product_name" => $product_r["product_name"], 
-                                                    "product_description" => $product_r["product_description"], 
-                                                    "product_price" => $product_r["product_price"],
-                                                    "product_image" => $product_r["product_image"], 
-                                                    "quantity" => $_POST['quantity']);
-                                
-                                $my_fake_id = "prod".$product_r["product_id"];
-                                $cart_item = array($my_fake_id => $product);
-                                $item_total_price = $_POST['quantity']*$product_r["product_price"];
 
-                                if(!empty($_SESSION["cart"])) {
-                                    if(in_array($my_fake_id,array_keys($_SESSION["cart"]))) {
-                                        foreach($_SESSION["cart"] as $k => $v) {
-                                            if($my_fake_id === $k){
-                                                $_SESSION["cart"][$k]["quantity"] += $_POST["quantity"]; 
-                                                $_SESSION['total_cost'] += $item_total_price;
-                                                header("Location: https://ccboxing.esikolweni.co.za/cart");      
+                        if( isset($_SESSION["loggedin"]) && !empty($_SESSION["loggedin"])){
+                            
+                            include(__DIR__)."/models/ProductDao.php";
+                            $productdao = new ProductDAO();
+                            $productdao->get_product($_POST['productid']);
+                            $product_r = $productdao->result;
+                            $item_total_price;
+
+                            if(isset($product_r) === true){
+                                if(0 < $_POST['quantity'] && $_POST['quantity'] < $product_r["stock_available"]){
+                                    $product = array("product_id" => $product_r["product_id"], 
+                                                        "product_name" => $product_r["product_name"], 
+                                                        "product_description" => $product_r["product_description"], 
+                                                        "product_price" => $product_r["product_price"],
+                                                        "product_image" => $product_r["product_image"], 
+                                                        "quantity" => $_POST['quantity']);
+                                    
+                                    $my_fake_id = "prod".$product_r["product_id"];
+                                    $cart_item = array($my_fake_id => $product);
+                                    $item_total_price = $_POST['quantity']*$product_r["product_price"];
+
+                                    if(!empty($_SESSION["cart"])) {
+                                        if(in_array($my_fake_id,array_keys($_SESSION["cart"]))) {
+                                            foreach($_SESSION["cart"] as $k => $v) {
+                                                if($my_fake_id === $k){
+                                                    $_SESSION["cart"][$k]["quantity"] += $_POST["quantity"]; 
+                                                    $_SESSION['total_cost'] += $item_total_price;
+                                                    header("Location: https://ccboxing.esikolweni.co.za/cart");      
+                                                }
                                             }
+                                        }else{
+                                            $_SESSION["cart"] = array_merge($_SESSION["cart"], $cart_item);
+                                            $_SESSION['total_cost'] += $item_total_price;
+                                            header("Location: https://ccboxing.esikolweni.co.za/cart");
                                         }
                                     }else{
-                                        $_SESSION["cart"] = array_merge($_SESSION["cart"], $cart_item);
-                                        $_SESSION['total_cost'] += $item_total_price;
+                                        $_SESSION['cart'] = $cart_item;
+                                        $_SESSION['total_cost'] = $item_total_price;
                                         header("Location: https://ccboxing.esikolweni.co.za/cart");
                                     }
-                                }else{
-                                    $_SESSION['cart'] = $cart_item;
-                                    $_SESSION['total_cost'] = $item_total_price;
-                                    header("Location: https://ccboxing.esikolweni.co.za/cart");
                                 }
+                            }else{
+                                header("Location: https://ccboxing.esikolweni.co.za/login");
                             }
+                        }else{
+                            header("Location: https://ccboxing.esikolweni.co.za/login");
                         }
                                                 
                     break;
 
                     case "delete":
+                        $product_id = $_POST['productid'];
+                        $my_fake_id = "prod".$product_id;
+                         
+                        if(!empty($_SESSION["cart"])) {
+                            $cost = ($_SESSION["cart"][$my_fake_id]['product_price'])*($_SESSION["cart"][$my_fake_id]['quantity']);
+                            $_SESSION['total_cost'] = $_SESSION['total_cost'] - $cost;
+                            unset($_SESSION["cart"][$my_fake_id]);
+                            header("Location: https://ccboxing.esikolweni.co.za/cart");
+                        }else{
+                            header("Location: https://ccboxing.esikolweni.co.za/cart");
+                        }
+                        
                     break;
-
-                    case "update":
+                    default:
                     break;
 
                 }
-
-                /*
-                include(__DIR__)."/models/ProductDao.php";
-                $productdao = new ProductDAO();
-                $productdao->get_product($params['productid']);
-                $product = $productdao->result;
-                $product_id = $product['product_id'];
-                $productdao->get_product_by_category($product['category_id']);
-                $products = $productdao->result;
-
-
-
-
-                if(!empty($_SESSION["cart_item"])) {}
-                    */
             break;
-            case "comment":
+            
+            case "checkout":
+                session_start();
+                $_SESSION['cart'] = [];
+                header("Location: https://ccboxing.esikolweni.co.za/success");
+            break;
+
+            case "comment": 
 
                 session_start();
             

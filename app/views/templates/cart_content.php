@@ -29,28 +29,23 @@
                                         </strong>
                                     </h6>
                                 </div>
-                                <!--div class="col-4 col-sm-4 col-md-4">
-                                    <div class="quantity">
-                                        <input type="button" value="+" class="plus">
-                                        <input type="number" step="1" max="99" min="1" value="1" title="Qty" class="qty"
-                                            size="4">
-                                        <input type="button" value="-" class="minus">
-                                    </div>
-                                </div-->
                                 <div class="col-2 col-sm-2 col-md-2 text-right">
-                                    <button type="button" class="btn btn-outline-danger btn-xs">
-                                    <i class="material-icons">delete</i>
-                                    </button>
+                                    <form method="post" action="https://ccboxing.esikolweni.co.za/cart">
+                                        <input type="hidden" name="productid" value=<?php echo $item['product_id']; ?> >
+                                        <input type="hidden" name="action" value="delete">
+                                        <div class="form-row align-items-center">
+                                            <div class="col-auto">
+                                                <button type="submit" name="" class="btn btn-outline-danger btn-xs">
+                                                    <i class="material-icons" style="vertical-align:middle;">delete</i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                         <hr>
                     <?php endforeach; ?>
-                <div class="float-right">
-                    <a href="" class="btn btn-outline-secondary float-right">
-                        Update shopping cart
-                    </a>
-                </div>
                 <?php else: ?>
                 <button href="" class="btn btn-outline-secondary" disabled>
                         Shopping cart empty
@@ -59,7 +54,7 @@
             </div>
             <div class="card-footer">
                 <div class="float-right" style="margin: 10px">
-                    <a href="" class="btn btn-success float-right">Checkout</a>
+                    <a href="https://ccboxing.esikolweni.co.za/checkout" class="btn btn-success float-right">Checkout</a>
                     <div class="float-right" style="margin: 5px">
                         Total price: <b>R<?php echo $total;?></b>
                     </div>

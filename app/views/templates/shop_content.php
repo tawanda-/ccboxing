@@ -73,7 +73,7 @@
                 <input type="hidden" name="action" value="add">
                 <div class="form-row align-items-center">
                   <div class="col-auto">
-                    <input class="form-control" type="number" name="quantity" 
+                    <input class="form-control" type="number" name="quantity" value="1"
                           min="1" max="<?php echo $value['stock_available'];?>">
                   </div>
                   <div class="col-auto">
