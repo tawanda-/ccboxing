@@ -52,6 +52,19 @@
             <h5>Price: R<?php echo $value['product_price']; ?></h5>
             <h6>In Stock: <?php echo $value['stock_available']; ?></h6>
             <p class="card-text"><?php echo $value['product_description']; ?></p>
+            Rating: <small class="text-muted">
+              <?php
+                for($x = 0; $x < $value['product_rating']; $x++){
+                    echo "&#9733;";
+                } 
+                $i = 5 - $value['product_rating'];
+                if($i>0){
+                  for($k = 0; $k < $i; $k++){
+                    echo "&#9734;";
+                  }
+                }
+              ?>
+              </small>
           </div>
           <div class="card-footer">
             <?php if( $value['stock_available'] > 0): ?>
