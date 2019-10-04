@@ -19,6 +19,9 @@
         <li class="nav-item">
           <a class="nav-link" href="https://ccboxing.esikolweni.co.za/contact">Contact</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://ccboxing.esikolweni.co.za/terms">T&C's</a>
+        </li>
         <?php if( isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true ): ?>
           <li class="nav-item">
             <a class="nav-link" href="https://ccboxing.esikolweni.co.za/cart">Cart</a>

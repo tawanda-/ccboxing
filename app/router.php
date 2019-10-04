@@ -103,6 +103,9 @@
                 }
                 require(__DIR__."/views/shopping_cart.php");
                 break;
+            case "terms":
+                require(__DIR__."/views/terms.php");
+                break;
             case "":
             case "app":
             case "home":
@@ -244,7 +247,7 @@
                             $customer_id = $_SESSION['customer_id'];
 
                             include(__DIR__)."/models/ProductDao.php";
-                            
+
                             $productdao = new ProductDao();
                             $productdao->add_comment($product_id, $customer_id, $comment);
                             header("Location: https://ccboxing.esikolweni.co.za/shop?productid=".$product_id);
