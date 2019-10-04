@@ -14,7 +14,32 @@
       <p><b>Description:</b> <?php echo $product['product_description']?></p>
       <p><b>Price:</b> <?php echo $product['product_price']?></p>
       <p><b>Stock:</b> <?php echo $product['stock_available']?></p>
-      <button>Add to cart</button>
+      <p><b>Rating:</b>
+      <?php
+          for($x = 0; $x < $product['product_rating']; $x++){
+              echo "&#9733;";
+          } 
+          $i = 5 - $product['product_rating'];
+          if($i>0){
+            for($k = 0; $k < $i; $k++){
+              echo "&#9734;";
+            }
+          }
+        ?>
+      </p>
+      <button style="margin-bottom: 16px;">Add to cart</button>
+      <?php if(isset($_SESSION["loggedin"])):?>
+        <p>
+          <b>Comments:</b><br/>
+          <?php include(__DIR__.'/comments_loggedin_html.php');?>
+        </p>
+        <?php else:?>
+        <p>
+          <b>Comments:</b><br/>
+          Please <a href="https://ccboxing.esikolweni.co.za/login">Login</a> to comment.
+          <?php include(__DIR__.'/comments_html.php');?>
+        </p>
+      <?php endif;?>
     </div>
 
   </div>

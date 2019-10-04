@@ -1,4 +1,6 @@
 <?
+    require_once(__DIR__."/helper/helper.php");
+
     ini_set('display_startup_errors', 1);
     ini_set('display_errors', 1);
     error_reporting(-1);
@@ -48,6 +50,7 @@
                     $product_id = $product['product_id'];
                     $productdao->get_product_by_category($product['category_id']);
                     $products = $productdao->result;
+                    $comments = $productdao->get_comments($product['product_id']);
                     require(__DIR__."/views/product.php");
                     
                 }else if(isset($params['categoryid'])){
@@ -132,6 +135,7 @@
                     $_SESSION["loggedin"] = true;
                     $_SESSION["id"] = $customer["customer_id"];
                     $_SESSION["username"] = $customer["customer_username"];
+                    $_SESSION["customer_id"] = $customer["customer_id"];
                     $_SESSION["name"] = $customer["customer_name"]." ".$customer["customer_surname"];
                     
                     // Redirect user to welcome page
@@ -154,6 +158,7 @@
                 echo "contact";
             break;
             case "cart":
+
                 session_start();
 
                 switch($_POST["action"]){
@@ -223,6 +228,36 @@
 
                 if(!empty($_SESSION["cart_item"])) {}
                     */
+            break;
+            case "comment":
+
+                session_start();
+            
+                switch($_POST['action']){
+
+                    case "addcomment":
+
+                        if(isset($_SESSION['customer_id']) && !empty($_SESSION['customer_id']) ){
+
+                            $product_id = $_POST['productid'];
+                            $comment = $_POST['commenttxt'];
+                            $customer_id = $_SESSION['customer_id'];
+
+                            include(__DIR__)."/models/ProductDao.php";
+                            
+                            $productdao = new ProductDao();
+                            $productdao->add_comment($product_id, $customer_id, $comment);
+                            header("Location: https://ccboxing.esikolweni.co.za/shop?productid=".$product_id);
+                            
+                        }else{
+                            header("Location: https://ccboxing.esikolweni.co.za/login");
+                        }
+                    break;
+
+                    default:
+                    break;
+
+                }
             break;
             case "":
             case "home":
