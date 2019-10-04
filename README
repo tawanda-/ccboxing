@@ -8,3 +8,13 @@ https://startbootstrap.com
 Boostrap library from: https://getbootstrap.com/
 JQuery library: https://jquery.com/
 Icon from: https://material.io/resources/icons/?style=baseline
+
+Requirements:
+In order to run the application, a web server running the following is required:
+1. PHP
+2. MySql database
+
+App Structure:
+
+
+
